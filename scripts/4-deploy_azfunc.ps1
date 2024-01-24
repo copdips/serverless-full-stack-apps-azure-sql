@@ -1,4 +1,4 @@
-$resourceGroupName = "learn-cf392e0c-0fc1-4b57-9a09-ad5023ce571a"
+$resourceGroupName = "learn-2e005eb2-3818-4992-8437-f52ef937cae2"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
 $location = $resourceGroup.Location
@@ -8,6 +8,7 @@ $azureFunctionName = $("azfunc$($uniqueID)")
 $storageAccountName = (Get-AzStorageAccount -ResourceGroup $resourceGroupName).StorageAccountName
 $storageAccountName
 
+# New-AzFunctionApp doesn't support Python 3.10+ with Function v$ on Linux
 $functionApp = New-AzFunctionApp -Name $azureFunctionName `
     -ResourceGroupName $resourceGroupName -StorageAccount $storageAccountName `
-    -FunctionsVersion 4 -RuntimeVersion 3.11 -Runtime python -Location $location
+    -FunctionsVersion 4 -RuntimeVersion 3.9 -Runtime python -Location $location

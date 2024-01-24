@@ -4,4 +4,4 @@ sudo apt-get update
 sudo apt-get install mssql-tools
 
 TERM=dumb
-/opt/mssql-tools/bin/sqlcmd -S bus-server732836.database.windows.net -P $password -U cloudadmin -d bus-db
+/opt/mssql-tools/bin/sqlcmd -S bus-server248468.database.windows.net -P $password -U cloudadmin -d bus-db

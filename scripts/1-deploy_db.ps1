@@ -4,12 +4,12 @@
 $adminSqlLogin = "cloudadmin"
 $password = Read-Host "Your username is 'cloudadmin'. Please enter a password for your Azure SQL Database server that meets the password requirements"
 # Prompt for local ip address
-$ipAddress = Read-Host "Please enter your IP address (include periods)"
+$ipAddress = "$(curl ifconfig.co)"
 
 Connect-AzAccount
 
 # Get resource group and location and random string
-$resourceGroupName = "learn-cf392e0c-0fc1-4b57-9a09-ad5023ce571a"
+$resourceGroupName = "learn-2e005eb2-3818-4992-8437-f52ef937cae2"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 $resourceGroup
 $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
@@ -31,7 +31,7 @@ Write-Host $serverName
 # learn-cf392e0c-0fc1-4b57-9a09-ad5023ce571a
 # 732836
 # westus
-# bus-server732836
+# bus-server248468
 
 # Create a new server with a system wide unique server name
 $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
@@ -39,11 +39,16 @@ $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 # Create a server firewall rule that allows access from the specified IP range and all Azure services
+# $serverFirewallRule = New-AzSqlServerFirewallRule `
+#     -ResourceGroupName $resourceGroupName `
+#     -ServerName $serverName `
+#     -FirewallRuleName "AllowedIPs" `
+#     -StartIpAddress $ipAddress -EndIpAddress $ipAddress
 $serverFirewallRule = New-AzSqlServerFirewallRule `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" `
-    -StartIpAddress $ipAddress -EndIpAddress $ipAddress
+    -StartIpAddress 0.0.0.0 -EndIpAddress 255.255.255.255
 $allowAzureIpsRule = New-AzSqlServerFirewallRule `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
