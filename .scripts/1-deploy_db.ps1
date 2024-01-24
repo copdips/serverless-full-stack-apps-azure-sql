@@ -2,20 +2,21 @@
 
 # Collect password
 $adminSqlLogin = "cloudadmin"
-$password = Read-Host "Your username is 'cloudadmin'. Please enter a password for your Azure SQL Database server that meets the password requirements"
+$password = "Password1"
 # Prompt for local ip address
-$ipAddress = "$(curl ifconfig.co)"
+# $ipAddress = "$(curl ifconfig.co)"
 
 Connect-AzAccount
 
 # Get resource group and location and random string
-$resourceGroupName = "learn-2e005eb2-3818-4992-8437-f52ef937cae2"
+$resourceGroupName = "learn-edd46d66-29c2-4723-96ef-78e7536f9b37"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 $resourceGroup
 $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
 $location = $resourceGroup.Location
 # The logical server name has to be unique in the system
 $serverName = "bus-server$($uniqueID)"
+$serverName = "bus-server248468"
 # The sample database name
 $databaseName = "bus-db"
 Write-Host "Please note your unique ID for future exercises in this module:"

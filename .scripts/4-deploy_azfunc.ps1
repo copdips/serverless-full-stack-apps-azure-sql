@@ -1,9 +1,10 @@
-$resourceGroupName = "learn-2e005eb2-3818-4992-8437-f52ef937cae2"
+$resourceGroupName = "learn-edd46d66-29c2-4723-96ef-78e7536f9b37"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
 $location = $resourceGroup.Location
 # Azure function name
 $azureFunctionName = $("azfunc$($uniqueID)")
+$azureFunctionName = "azfunc460332"
 # Get storage account name
 $storageAccountName = (Get-AzStorageAccount -ResourceGroup $resourceGroupName).StorageAccountName
 $storageAccountName
