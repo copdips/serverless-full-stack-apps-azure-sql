@@ -1,5 +1,5 @@
 # Resource group name and resource group
-$resourceGroupName = "learn-edd46d66-29c2-4723-96ef-78e7536f9b37"
+$resourceGroupName = "learn-59396413-451a-48bc-9f35-ccdbedd2d21b"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 $location = $resourceGroup.Location
 # Get the repository name

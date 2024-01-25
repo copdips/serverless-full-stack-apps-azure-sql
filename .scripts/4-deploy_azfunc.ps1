@@ -1,4 +1,4 @@
-$resourceGroupName = "learn-edd46d66-29c2-4723-96ef-78e7536f9b37"
+$resourceGroupName = "learn-59396413-451a-48bc-9f35-ccdbedd2d21b"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
 $location = $resourceGroup.Location
