@@ -54,7 +54,7 @@
             })
         ];
 
-        function init() {           
+        function init() {
             raster = new ol.layer.Tile({
                 source: new ol.source.OSM()
             });
@@ -68,20 +68,23 @@
                 })
             });
 
-            // Sample URL: 
+            // Sample URL:
             // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
             const params = new URLSearchParams(location.search);
             const rid = params.get('rid');
             const gid = params.get('gid');
             const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
+            // const apiUrl = `http://localhost:7071/api/bus-data?rid=${rid}&gid=${gid}`;
             $.getJSON(apiUrl, data => {
                 //console.log(data);
-                plotWKT(data);                
+                plotWKT(data);
             });
         }
 
         function plotWKT(data) {
             var f1, f2;
+            // data.busData =  'MULTIPOINT ((-122.142634 47.617036), (-122.143086 47.615282))'
+            // data.geoFence = 'POLYGON ((-122.14359028995352 47.618245191245848, -122.14360975757847 47.616519550427654, -122.13966755206604 47.616526111887509, -122.13968701903617 47.617280676597375, -122.142821316476 47.617300360798339, -122.142821316476 47.618186139853435, -122.14359028995352 47.618245191245848))'
 
             if (data.busData == [] || data.geoFence == [])
                 return;
@@ -110,7 +113,7 @@
                 style: styles
             });
             map.addLayer(vector);
-            
+
             derived_feature = f2 ?? f1;
             extent = derived_feature.getGeometry().getExtent();
             minx = derived_feature.getGeometry().getExtent()[0];
@@ -122,8 +125,8 @@
             map.setView(new ol.View({
                 center: [centerx, centery],
                 zoom: 10
-            }));            
-            map.getView().fit(extent, map.getSize());            
+            }));
+            map.getView().fit(extent, map.getSize());
         }
     </script>
 </head>
