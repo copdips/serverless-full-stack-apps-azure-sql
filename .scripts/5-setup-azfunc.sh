@@ -1,6 +1,6 @@
 azfunc_name=azfunc460332
 resource_group_name=learn-59396413-451a-48bc-9f35-ccdbedd2d21b
-password=Password1
+password=fakePassword1
 
 # az func python 3.11 has ODBC Driver 18 for SQL Server not 17
 az functionapp config appsettings set -n $azfunc_name -g $resource_group_name \

@@ -6,4 +6,4 @@ sudo apt-get install mssql-tools
 # run github workflow Deploy Database Job create schema and tables before bewlow sqlcmd
 
 TERM=dumb
-/opt/mssql-tools/bin/sqlcmd -S bus-server248468.database.windows.net -P Password1 -U cloudadmin -d bus-db
+/opt/mssql-tools/bin/sqlcmd -S bus-server248468.database.windows.net -P fakePassword1 -U cloudadmin -d bus-db

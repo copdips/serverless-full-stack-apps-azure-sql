@@ -2,7 +2,7 @@
 
 # Collect password
 $adminSqlLogin = "cloudadmin"
-$password = "Password1"
+$password = "fakePassword1"
 # Prompt for local ip address
 # $ipAddress = "$(curl ifconfig.co)"
 

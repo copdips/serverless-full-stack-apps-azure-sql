@@ -2,8 +2,6 @@
 
 Learn how to create, build, and deploy modern full stack applications in Azure leveraging the language of your choice (Python, Node.js, or .NET) and with a simple JQuery frontend. Topics covered include modern database capabilities, CI/CD and DevOps, backend API development, REST, and more. Using a real-world scenario of trying to catch the bus, you will learn how to build a solution that leverages Azure SQL Database, Azure Functions, Azure Static Web Apps, Logic Apps, Visual Studio Code and GitHub Actions.
 
-![](https://learn.microsoft.com/en-us/training/modules/automate-deployments-github-actions-azure/media/2-catch-the-bus.svg)
-
 ## Features
 
 This project features the following capabilities.
