@@ -9,7 +9,7 @@ $webAppName = "bus-server248468"
 # Get the repository name
 $appRepository = "https://github.com/copdips/serverless-full-stack-apps-azure-sql"
 # Get user's GitHub personal access token
-$githubToken = "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"
+$githubToken = ""
 # App service plan name
 $appServicePlanName = (Get-AzAppServicePlan -resourceGroupName $resourceGroupName).Name
 
